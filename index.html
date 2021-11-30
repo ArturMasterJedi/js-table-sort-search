@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS table</title>
+</head>
+<style>
+    .link th{
+        color: blue;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="blok">
+        <input class="form-control" type="text" placeholder="Поиск в таблице" id="search-text" onkeyup="tableSearch()">
+        <table id="sortable">
+             <thead>
+                 <tr>
+                  <th>Currency</th>
+                  <th>Буквенный</th>
+                  <th data-type="number">Числовой</th>
+                  <th>Валюта</th>
+                  </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                  <td>Australian Dollar</td>
+                  <td>AUD</td>
+                  <td>036</td>
+                  <td>Австралийский доллар</td>
+                 </tr>
+                <tr>
+                 <td>Austrian Schilling</td>
+                 <td>ATS</td>
+                 <td>040</td>
+                 <td>Австрийский шиллинг</td>
+                </tr>
+                <tr>
+                 <td>Belgian Franc</td>
+                 <td>BEF</td>
+                 <td>056</td>
+                 <td>Бельгийский франк</td>
+                </tr>
+                <tr>
+                 <td>British Pound</td>
+                 <td>GBP</td>
+                 <td>826</td>
+                 <td>Британский фунт</td>
+                </tr>
+                <tr>
+                 <td>Canadian Dollar</td>
+                 <td>CAD</td>
+                 <td>124</td>
+                 <td>Канадский доллар</td>
+                </tr>
+                <tr>
+                 <td>Czech Koruna</td>
+                 <td>CZK</td>
+                 <td>203</td>
+                 <td>Чешская крона</td>
+                </tr>
+                <tr>
+                 <td>Danish Krone</td>
+                 <td>DKK</td>
+                 <td>208</td>
+                 <td>Датская крона</td>
+                </tr>
+                <tr>
+                 <td>Dutch Guilder</td>
+                 <td>NLG</td>
+                 <td>528</td>
+                 <td>Нидерландский гульден</td>
+                </tr>
+                <tr>
+                 <td>Estonian Kroon</td>
+                 <td>EEK</td>
+                 <td>233</td>
+                 <td>Эстонская крона</td>
+                </tr>
+                <tr>
+                 <td>Euro</td>
+                 <td>EUR</td>
+                 <td>978</td>
+                 <td>Единая европейская валюта</td>
+                </tr>
+                <tr>
+                 <td>Finnish Mark</td>
+                 <td>FIM</td>
+                 <td>246</td>
+                 <td>Финская марка</td>
+                </tr>
+                <tr>
+                 <td>French Franc</td>
+                 <td>FRF</td>
+                 <td>250</td>
+                 <td>Французский франк</td>
+                </tr>
+                <tr>
+                 <td>German Mark</td>
+                 <td>DEM</td>
+                 <td>276</td>
+                 <td>Немецкая марка</td>
+                </tr>
+                <tr>
+                 <td>Greek Drachma</td>
+                 <td>GRD</td>
+                 <td>300</td>
+                 <td>Греческая драхма</td>
+                </tr>
+                <tr>
+                 <td>Hong Kong Dollar</td>
+                 <td>HKD</td>
+                 <td>344</td>
+                 <td>Гонконгский доллар</td>
+                </tr>
+                <tr>
+                 <td>Hungarian Forint</td>
+                 <td>HUF</td>
+                 <td>348</td>
+                 <td>Венгерский форинт</td>
+                </tr>
+                 <tr>
+                 <td>Irish Punt</td>
+                 <td>IEP</td>
+                 <td>372</td>
+                <td>Ирландский фунт</td>
+                </tr>
+                <tr>
+                 <td>Italian Lira</td>
+                 <td>ITL</td>
+                 <td>380</td>
+                 <td>Итальянская лира</td>
+                </tr>
+                <tr>
+                 <td>Japanese Yen</td>
+                 <td>JPY</td>
+                 <td>392</td>
+                 <td>Японская йена</td>
+                </tr>
+                <tr>
+                 <td>Latvian Lat</td>
+                 <td>LVL</td>
+                 <td>428</td>
+                 <td>Латвийский лат</td>
+                </tr>
+                <tr>
+                 <td>Lithuanian Lita</td>
+                 <td>LTL</td>
+                 <td>440</td>
+                 <td>Литовский лит</td>
+                </tr>
+                <tr>
+                 <td>Mexican Peso</td>
+                 <td>MXN</td>
+                 <td>484</td>
+                 <td>Мексиканский песо</td>
+                </tr>
+                <tr>
+                 <td>New Zealand Dollar</td>
+                 <td>NZD</td>
+                 <td>554</td>
+                 <td>Новозеландский доллар</td>
+                </tr>
+                <tr>
+                 <td>Norway Krone</td>
+                 <td>NOK</td>
+                 <td>578</td>
+                 <td>Норвежская крона</td>
+                </tr>
+                <tr>
+                 <td>Polish Zloty</td>
+                 <td>PLN</td>
+                 <td>985</td>
+                 <td>Польский злотый</td>
+                </tr>
+                <tr>
+                 <td>Portuguese Escudo</td>
+                 <td>PTE</td>
+                 <td>620</td>
+                 <td>Португальское эскудо</td>
+                </tr>
+                <tr>
+                 <td>Russian Rouble</td>
+                 <td>RUB</td>
+                 <td>643</td>
+                 <td>Российский рубль</td>
+                </tr>
+                <tr>
+                 <td>Singapore Dollar</td>
+                 <td>SGD</td>
+                 <td>702</td>
+                 <td>Сингапурский доллар</td>
+                </tr>
+                <tr>
+                 <td>Slovak Koruna</td>
+                 <td>SKK</td>
+                 <td>703</td>
+                 <td>Словацкая крона</td>
+                </tr>
+                <tr>
+                 <td>South African Rand</td>
+                 <td>ZAR</td>
+                 <td>710</td>
+                 <td>Южноафриканский ранд</td>
+                </tr>
+                <tr>
+                 <td>Spanish Peseta</td>
+                 <td>ESP</td>
+                 <td>724</td>
+                 <td>Испанская песета</td>
+                 </tr>
+                <tr>
+                 <td>Swedish Krona</td>
+                 <td>SEK</td>
+                 <td>752</td>
+                 <td>Шведская крона</td>
+                </tr>
+                <tr>
+                 <td>Swiss Franc</td>
+                 <td>CHF</td>
+                 <td>756</td>
+                 <td>Швейцарский франк</td>
+                </tr>
+                 <tr>
+                 <td>Ukraine Hryvnia</td>
+                 <td>UAH</td>
+                 <td>980</td>
+                <td>Украинская гривна</td>
+                </tr><tr>
+                 <td>United States Dollar</td>
+                 <td>USD</td>
+                 <td>840</td>
+                 <td>Американский доллар</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const table = document.getElementById('sortable');
+        const headers = table.querySelectorAll('th');
+        const tableBody = table.querySelector('tbody');
+        const rows = tableBody.querySelectorAll('tr');
+
+        // Направление сортировки
+        const directions = Array.from(headers).map(function(header) {
+            return '';
+        });
+
+        // Преобразовать содержимое данной ячейки в заданном столбце
+        const transform = function(index, content) {
+            // Получить тип данных столбца
+            const type = headers[index].getAttribute('data-type');
+            switch (type) {
+                case 'number':
+                    return parseFloat(content);
+                case 'string':
+                default:
+                    return content;
+            }
+        };
+
+        const sortColumn = function(index) {
+            // Получить текущее направление
+            const direction = directions[index] || 'asc';
+
+            // Фактор по направлению
+            const multiplier = (direction === 'asc') ? 1 : -1;
+
+            const newRows = Array.from(rows);
+
+            newRows.sort(function(rowA, rowB) {
+                const cellA = rowA.querySelectorAll('td')[index].innerHTML;
+                const cellB = rowB.querySelectorAll('td')[index].innerHTML;
+
+                const a = transform(index, cellA);
+                const b = transform(index, cellB);    
+
+                switch (true) {
+                    case a > b: return 1 * multiplier;
+                    case a < b: return -1 * multiplier;
+                    case a === b: return 0;
+                }
+            });
+
+            // Удалить старые строки
+            [].forEach.call(rows, function(row) {
+                tableBody.removeChild(row);
+            });
+
+            // Поменять направление
+            directions[index] = direction === 'asc' ? 'desc' : 'asc';
+
+            // Добавить новую строку
+            newRows.forEach(function(newRow) {
+                tableBody.appendChild(newRow);
+            });
+        };
+
+        [].forEach.call(headers, function(header, index) {
+            header.addEventListener('click', function() {
+                sortColumn(index);
+            });
+        });
+    });
+
+
+    function tableSearch() {
+    var phrase = document.getElementById('search-text');
+    var table = document.getElementById('sortable');
+    var regPhrase = new RegExp(phrase.value, 'i');
+    var flag = false;
+    for (var i = 1; i < table.rows.length; i++) {
+        flag = false;
+        for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
+            flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
+            if (flag) break;
+        }
+        if (flag) {
+            table.rows[i].style.display = "";
+        } else {
+            table.rows[i].style.display = "none";
+        }
+
+    }
+}
+    </script>
+</body>
+</html>
